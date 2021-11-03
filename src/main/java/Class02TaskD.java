@@ -12,15 +12,10 @@ public class Class02TaskD {
         System.out.println(calculate(line1, line2));
     }
 
-    public static int calculate(String line1, String line2) {
+    public static long calculate(String line1, String line2) {
         int[] line1parsed = parseLine(line1);
         int n = line1parsed[0];
-        int k = line1parsed[1];
         int[] b = parseLine(line2);
-//
-//        for (int i = 0; i < k; i++) {
-//            deConfuse(b);
-//        }
 
         int min = Integer.MAX_VALUE;
         int max = Integer.MIN_VALUE;
@@ -35,7 +30,7 @@ public class Class02TaskD {
             }
         }
 
-        return max - min;
+        return (long) max - (long) min;
     }
 
     private static int[] parseLine(String line) {
@@ -44,37 +39,6 @@ public class Class02TaskD {
                 .map(Integer::parseInt)
                 .mapToInt(i -> i)
                 .toArray();
-    }
-
-    private static void deConfuse(int[] source) {
-//        System.out.println("source = " + Arrays.toString(source));
-
-        int n = source.length;
-        long S = IntStream
-                .of(source)
-                .mapToLong(m -> m)
-                .sum()
-                / (n - 1);
-
-//        System.out.println("S = " + S);
-
-        int[] result = new int[n];
-        for (int i = 0; i < n; i++) {
-            long r = S;
-
-            for (int i1 = 0; i1 < n; i1++) {
-                if (i1 == i) {
-                    continue;
-                }
-
-                r -= source[i1];
-            }
-
-            result[i] = (int) r;
-        }
-
-        System.arraycopy(result, 0, source, 0, n);
-//        System.out.println("result = " + Arrays.toString(result));
     }
 }
 

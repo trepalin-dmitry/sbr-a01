@@ -33,6 +33,13 @@ public class Class02TaskDTest {
         testCore(10, 2, 10_000, 1, 100, 1_500, 2_000);
     }
 
+    @Test
+    public void test05() {
+        assertEquals(4_294_967_295L, Class02TaskD.calculate(
+                "2 2",
+                "-2147483648 2147483647"
+        ));
+    }
 
     private void testCore(int count, int n_min, int n_max, int k_min, int k_max, int b_min, int b_max) {
         for (int t = 0; t < count; t++) {
