@@ -1,9 +1,7 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class Class02TaskE {
     public static void main(String[] args) throws IOException {
@@ -30,10 +28,10 @@ public class Class02TaskE {
             }
         }
 
-        if (stat.get(maxValue) == 1){
+        if (stat.get(maxValue) == 1) {
             int sumOther = 0;
             for (Map.Entry<Integer, Integer> entry : stat.entrySet()) {
-                if (entry.getKey() == maxValue){
+                if (entry.getKey() == maxValue) {
                     continue;
                 }
 
@@ -41,7 +39,7 @@ public class Class02TaskE {
             }
 
             int result = maxValue - sumOther;
-            if (result > 0){
+            if (result > 0) {
                 return result;
             }
         }
@@ -49,3 +47,4 @@ public class Class02TaskE {
         return sum;
     }
 }
+
