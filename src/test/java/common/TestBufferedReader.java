@@ -8,13 +8,14 @@ import lombok.experimental.Accessors;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 @Accessors(chain = true)
 @ToString
 public class TestBufferedReader extends BufferedReader {
     private int index = 0;
-    private final List<String> lines = new ArrayList<>();
+    private final List<String> linesInternal = new ArrayList<>();
 
     @Getter
     @Setter
@@ -26,16 +27,21 @@ public class TestBufferedReader extends BufferedReader {
 
     @Override
     public String readLine() {
-        return lines.get(index++);
+        return linesInternal.get(index++);
     }
 
     public TestBufferedReader addLine(String line) {
-        lines.add(line);
+        linesInternal.add(line);
+        return this;
+    }
+
+    public TestBufferedReader addLines(Collection<String> lines) {
+        linesInternal.addAll(lines);
         return this;
     }
 
     @Override
     public boolean ready() {
-        return index < lines.size();
+        return index < linesInternal.size();
     }
 }
