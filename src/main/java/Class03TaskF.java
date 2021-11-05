@@ -14,32 +14,39 @@ public class Class03TaskF {
 
     public static String[] calc(BufferedReader bufferedReader) throws IOException {
         int n = Integer.parseInt(bufferedReader.readLine());
-        Set<Integer> variants = new HashSet<>();
+        var ref = new Object() {
+            Set<Integer> variants = new HashSet<>();
+        };
         for (int i = 1; i <= n; i++) {
-            variants.add(i);
+            ref.variants.add(i);
         }
 
         List<String> result = new ArrayList<>();
+        Set<String> lines = new HashSet<>();
         while (true) {
             String line = bufferedReader.readLine();
             if (Objects.equals(line, "HELP")) {
-                result.add(variants.stream().sorted().map(String::valueOf).collect(Collectors.joining(" ")));
+                result.add(ref.variants.stream().sorted().map(String::valueOf).collect(Collectors.joining(" ")));
                 break;
             }
 
-            Set<Integer> lineSet = Arrays.stream(line.split(" ")).map(Integer::parseInt).collect(Collectors.toSet());
-            Set<Integer> variantsNo = new HashSet<>(variants);
-            variantsNo.removeAll(lineSet);
+            if (lines.contains(line)) {
+                continue;
+            }
 
-            int variantsSize = variants.size();
-            int variantsNoSize = variantsNo.size();
+            lines.add(line);
 
-            if (variantsNoSize >= (variantsSize - variantsNoSize)) {
+            Set<Integer> variantsYes = Arrays
+                    .stream(line.split(" "))
+                    .map(Integer::parseInt)
+                    .filter(f -> ref.variants.remove(f))
+                    .collect(Collectors.toSet());
+
+             if (ref.variants.size() >= variantsYes.size()) {
                 result.add("NO");
-                variants = variantsNo;
             } else {
                 result.add("YES");
-                variants.removeAll(variantsNo);
+                ref.variants = variantsYes;
             }
         }
         return result.toArray(String[]::new);
