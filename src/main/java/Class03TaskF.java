@@ -42,7 +42,7 @@ public class Class03TaskF {
                     .filter(f -> ref.variants.remove(f))
                     .collect(Collectors.toSet());
 
-             if (ref.variants.size() >= variantsYes.size()) {
+            if (ref.variants.size() >= variantsYes.size()) {
                 result.add("NO");
             } else {
                 result.add("YES");
@@ -52,3 +52,4 @@ public class Class03TaskF {
         return result.toArray(String[]::new);
     }
 }
+

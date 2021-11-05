@@ -76,3 +76,4 @@ public class Class03TaskFTest {
                 , Class03TaskF.calc(bufferedReader));
     }
 }
+
