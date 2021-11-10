@@ -22,19 +22,12 @@ public class Class03TaskF {
         }
 
         List<String> result = new ArrayList<>();
-        Set<String> lines = new HashSet<>();
         while (true) {
             String line = bufferedReader.readLine();
             if (Objects.equals(line, "HELP")) {
                 result.add(ref.variants.stream().sorted().map(String::valueOf).collect(Collectors.joining(" ")));
                 break;
             }
-
-            if (lines.contains(line)) {
-                continue;
-            }
-
-            lines.add(line);
 
             Set<Integer> variantsYes = Arrays
                     .stream(line.split(" "))
