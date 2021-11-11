@@ -6,22 +6,20 @@ import java.util.List;
 
 import static org.junit.Assert.assertArrayEquals;
 
-public class Class04TaskFTest {
+public class Class05TaskDTest {
     @Test
     public void test01() throws IOException {
         TestBufferedReader bufferedReader = new TestBufferedReader();
 
         bufferedReader.addLines(List.of(
-                "280138",
-                "798081"
-
+                "1",
+                "10 20"
         ));
 
-
         assertArrayEquals(new String[]{
-                        "8810"
+                        "10"
                 }
-                , Class04TaskF.calc(bufferedReader));
+                , Class05TaskD.calc(bufferedReader));
     }
 
     @Test
@@ -29,15 +27,14 @@ public class Class04TaskFTest {
         TestBufferedReader bufferedReader = new TestBufferedReader();
 
         bufferedReader.addLines(List.of(
-                "123",
-                "456"
+                "1",
+                "10 10"
         ));
 
-
         assertArrayEquals(new String[]{
-                        "-1"
+                        "0"
                 }
-                , Class04TaskF.calc(bufferedReader));
+                , Class05TaskD.calc(bufferedReader));
     }
 
     @Test
@@ -45,15 +42,14 @@ public class Class04TaskFTest {
         TestBufferedReader bufferedReader = new TestBufferedReader();
 
         bufferedReader.addLines(List.of(
-                "100",
-                "200"
+                "2",
+                "10 20",
+                "20 40"
         ));
 
-
         assertArrayEquals(new String[]{
-                        "0"
+                        "30"
                 }
-                , Class04TaskF.calc(bufferedReader));
+                , Class05TaskD.calc(bufferedReader));
     }
 }
-

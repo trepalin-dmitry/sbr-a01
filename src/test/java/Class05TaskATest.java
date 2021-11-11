@@ -6,22 +6,23 @@ import java.util.List;
 
 import static org.junit.Assert.assertArrayEquals;
 
-public class Class04TaskFTest {
+public class Class05TaskATest {
     @Test
     public void test01() throws IOException {
         TestBufferedReader bufferedReader = new TestBufferedReader();
 
         bufferedReader.addLines(List.of(
-                "280138",
-                "798081"
-
+                "2",
+                "3 4",
+                "3",
+                "1 2 3"
         ));
 
 
         assertArrayEquals(new String[]{
-                        "8810"
+                        "3 3"
                 }
-                , Class04TaskF.calc(bufferedReader));
+                , Class05TaskA.calc(bufferedReader));
     }
 
     @Test
@@ -29,15 +30,18 @@ public class Class04TaskFTest {
         TestBufferedReader bufferedReader = new TestBufferedReader();
 
         bufferedReader.addLines(List.of(
-                "123",
-                "456"
+                "2",
+                "4 5",
+                "3",
+                "1 2 3"
+
         ));
 
 
         assertArrayEquals(new String[]{
-                        "-1"
+                        "4 3"
                 }
-                , Class04TaskF.calc(bufferedReader));
+                , Class05TaskA.calc(bufferedReader));
     }
 
     @Test
@@ -45,15 +49,16 @@ public class Class04TaskFTest {
         TestBufferedReader bufferedReader = new TestBufferedReader();
 
         bufferedReader.addLines(List.of(
-                "100",
-                "200"
+                "5",
+                "1 2 3 4 5",
+                "5",
+                "1 2 3 4 5"
         ));
 
 
         assertArrayEquals(new String[]{
-                        "0"
+                        "1 1"
                 }
-                , Class04TaskF.calc(bufferedReader));
+                , Class05TaskA.calc(bufferedReader));
     }
 }
-

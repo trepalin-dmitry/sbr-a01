@@ -24,17 +24,16 @@ public class Class04TaskF {
                     Integer value2 = map2.get(f);
                     if (value2 != null) {
                         int repeat;
-                        if (stringBuilder.isEmpty() && f == '0'){
+                        if (stringBuilder.isEmpty() && f == '0') {
                             repeat = 1;
-                        }
-                        else{
+                        } else {
                             repeat = Math.min(map1.get(f), value2);
                         }
                         stringBuilder.append(String.valueOf(f).repeat(repeat));
                     }
                 });
 
-        if (stringBuilder.isEmpty()){
+        if (stringBuilder.isEmpty()) {
             stringBuilder.append("-1");
         }
 
@@ -51,3 +50,4 @@ public class Class04TaskF {
         return result;
     }
 }
+
