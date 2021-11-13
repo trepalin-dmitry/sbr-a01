@@ -43,3 +43,4 @@ public class Class05TaskETest {
                 , Class05TaskE.calc(bufferedReader));
     }
 }
+
